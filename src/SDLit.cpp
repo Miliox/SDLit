@@ -20,7 +20,7 @@ void init(
     std::uint32_t sdl_init_flags,
     std::uint32_t img_init_flags,
     std::uint32_t mix_init_flags,
-    bool          ttf_init) noexcept {
+    bool          shall_init_ttf) noexcept {
 
     static std::once_flag quit_once_flag{};
     std::call_once(quit_once_flag, []() {
@@ -45,7 +45,7 @@ void init(
         std::exit(EXIT_FAILURE);
     }
 
-    if (ttf_init && TTF_Init()) {
+    if (shall_init_ttf && TTF_Init()) {
         SDL_LogCritical(SDL_LOG_CATEGORY_SYSTEM, "TTF_Init failed: %s", TTF_GetError());
         std::exit(EXIT_FAILURE);
     }

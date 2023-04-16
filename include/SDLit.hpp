@@ -21,7 +21,7 @@ void init(
     std::uint32_t sdl_init_flags = 0,
     std::uint32_t img_init_flags = 0,
     std::uint32_t mix_init_flags = 0,
-    bool          ttf_init = false) noexcept;
+    bool          shall_init_ttf = false) noexcept;
 
 /// SDL types custom deleter
 class SDL_Deleter final {
