@@ -28,5 +28,8 @@ if get_option('build_example').enabled()
 
   # create a window with colored stripes used to color test TVs
   executable('smpte_test', 'example/smpte_test.cpp', win_subsystem: 'windows', dependencies: example_dep)
+
+  # display a given string in a window
+  executable('show_text', 'example/show_text.cpp', win_subsystem: 'windows', dependencies: example_dep)
 endif
 
