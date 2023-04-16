@@ -1,4 +1,4 @@
-project('sdlit', 'cpp',
+project('SDLit', 'cpp',
   default_options: ['default_library=static', 'cpp_std=c++20'],
   license:         'MIT',
   version:         '0.0.1')
@@ -10,7 +10,7 @@ sdl2_mixer_dep = dependency('sdl2_mixer')
 sdl2_ttf_dep   = dependency('sdl2_ttf')
 
 sdlit_inc = include_directories('include')
-sdlit_src = ['src/sdlit.cpp']
+sdlit_src = ['src/SDLit.cpp']
 sdlit_dep = declare_dependency(
   include_directories: sdlit_inc,
   dependencies: [sdl2_dep, sdl2_image_dep, sdl2_mixer_dep, sdl2_ttf_dep],

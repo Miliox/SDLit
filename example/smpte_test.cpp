@@ -1,4 +1,4 @@
-#include "sdlit.hpp"
+#include "SDLit.hpp"
 
 #include "SDL.h"
 
@@ -6,9 +6,9 @@
 #include <iostream>
 
 int main() {
-    sdlit::init(SDL_INIT_VIDEO);
+    SDLit::init(SDL_INIT_VIDEO);
 
-    auto const window = sdlit::make_unique(
+    auto const window = SDLit::make_unique(
         SDL_CreateWindow,
         "SMPTE",
         SDL_WINDOWPOS_CENTERED,
@@ -18,7 +18,7 @@ int main() {
         0U);
     if (not window) { std::cerr << SDL_GetError() << '\n'; return EXIT_FAILURE; }
 
-    auto const renderer = sdlit::make_unique(
+    auto const renderer = SDLit::make_unique(
         SDL_CreateRenderer,
         window.get(),
         -1,

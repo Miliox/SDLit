@@ -1,4 +1,4 @@
-#include "sdlit.hpp"
+#include "SDLit.hpp"
 
 #include "SDL.h"
 #include "SDL_mixer.h"
@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
 
-    sdlit::init(SDL_INIT_AUDIO | SDL_INIT_EVENTS);
+    SDLit::init(SDL_INIT_AUDIO | SDL_INIT_EVENTS);
 
     if (Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 512)) {
         std::cerr << "Mix_OpenAudio failed: " << Mix_GetError() << '\n';
@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
     }
     CloseAudioGuard close_audio_guard{};
 
-    auto chunk = sdlit::make_unique(Mix_LoadWAV, argv[1]);
+    auto chunk = SDLit::make_unique(Mix_LoadWAV, argv[1]);
     if (not chunk) {
         std::cerr << "Mix_LoadWav failed: " << Mix_GetError() << '\n';
         return EXIT_FAILURE;

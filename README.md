@@ -51,15 +51,15 @@ Creating a window with the [SMPTE color bars](https://en.wikipedia.org/wiki/SMPT
 * See [example/smpte\_test.cpp](example/smpte_test.cpp)
 
 ```cpp
-#include "sdlit.hpp"
+#include "SDLit.hpp"
 
 #include <iostream>
 
 int main() {
     // initialize sdl systems
-    sdlit::init(SDL_INIT_VIDEO);
+    SDLit::init(SDL_INIT_VIDEO);
 
-    auto const window = sdlit::make_unique(
+    auto const window = SDLit::make_unique(
         SDL_CreateWindow,
         "Window",
         SDL_WINDOWPOS_CENTERED,
@@ -69,7 +69,7 @@ int main() {
         0U);
     if (not window) { std::cerr << SDL_GetError() << std::endl; return EXIT_FAILURE; }
 
-    auto const renderer = sdlit::make_unique(
+    auto const renderer = SDLit::make_unique(
         SDL_CreateRenderer,
         window.get(),
         -1,

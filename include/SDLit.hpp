@@ -14,7 +14,7 @@ struct SDL_Surface;
 struct SDL_Texture;
 struct SDL_Window;
 
-namespace sdlit {
+namespace SDLit {
 
 /// Init SDL and register at exit callbacks to tear SDL down
 void init(

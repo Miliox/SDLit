@@ -1,4 +1,4 @@
-#include "sdlit.hpp"
+#include "SDLit.hpp"
 
 #include <cstdlib>
 #include <mutex>
@@ -14,7 +14,7 @@
 #include "SDL_ttf.h"
 #pragma GCC diagnostic pop
 
-namespace sdlit {
+namespace SDLit {
 
 void init(
     std::uint32_t sdl_init_flags,
