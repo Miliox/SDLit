@@ -18,7 +18,15 @@ sdlit_dep = declare_dependency(
 sdlit_lib = static_library('sdlit', sdlit_src, dependencies: sdlit_dep)
 
 if get_option('build_example').enabled()
-  executable('smpte_test', 'example/smpte_test.cpp', win_subsystem: 'windows',
-    dependencies: declare_dependency(dependencies: sdlit_dep, link_with: sdlit_lib))
+  example_dep = declare_dependency(dependencies: sdlit_dep, link_with: sdlit_lib)
+
+  # decode the whole input file before playing it
+  executable('play_chunk', 'example/play_chunk.cpp', win_subsystem: 'windows', dependencies: example_dep)
+
+  # decode the input file on demand while playing it
+  executable('play_music', 'example/play_music.cpp', win_subsystem: 'windows', dependencies: example_dep)
+
+  # create a window with colored stripes used to color test TVs
+  executable('smpte_test', 'example/smpte_test.cpp', win_subsystem: 'windows', dependencies: example_dep)
 endif
 

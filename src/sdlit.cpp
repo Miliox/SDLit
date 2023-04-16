@@ -87,4 +87,11 @@ void SDL_Deleter::operator()(Mix_Chunk* ptr) noexcept {
     }
 }
 
+void SDL_Deleter::operator()(Mix_Music* ptr) noexcept {
+    if (ptr != nullptr) {
+        Mix_FreeMusic(ptr);
+    }
+}
+
+
 }

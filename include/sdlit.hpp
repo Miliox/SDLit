@@ -5,6 +5,7 @@
 #include <type_traits>
 
 struct Mix_Chunk;
+struct _Mix_Music;
 struct _TTF_Font;
 
 struct SDL_AudioSpec;
@@ -26,6 +27,7 @@ void init(
 class SDL_Deleter final {
 public:
     void operator()(Mix_Chunk* ptr)    noexcept;
+    void operator()(_Mix_Music* ptr)   noexcept;
     void operator()(_TTF_Font* ptr)    noexcept;
     void operator()(SDL_Renderer* ptr) noexcept;
     void operator()(SDL_Surface* ptr)  noexcept;
