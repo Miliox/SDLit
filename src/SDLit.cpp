@@ -35,7 +35,7 @@ void init(
         std::exit(EXIT_FAILURE);
     }
 
-    if (img_init_flags && img_init_flags == IMG_Init(img_init_flags)) {
+    if (img_init_flags && img_init_flags != IMG_Init(img_init_flags)) {
         SDL_LogCritical(SDL_LOG_CATEGORY_SYSTEM, "IMG_Init failed: %s", IMG_GetError());
         std::exit(EXIT_FAILURE);
     }
