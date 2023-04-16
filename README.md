@@ -45,42 +45,37 @@ meson compile -C builddir
 
 ## Usage
 
-Example:
-
-Creating a window with the [SMPTE color bars](https://en.wikipedia.org/wiki/SMPTE_color_bars):
-* See [example/smpte\_test.cpp](example/smpte_test.cpp)
+* Include __SDL__ headers
+* Include __SDLit.hpp__
+* Init SDL subsystems using __SDLit::init()__
+* Invoke SDL function that allocate using __SDLit::make_unique()__ for RAII
 
 ```cpp
+#include "SDL.h"
+#include "SDL_image.h"
+#include "SDL_mixer.h"
+#include "SDL_ttf.h"
 #include "SDLit.hpp"
-
-#include <iostream>
 
 int main() {
     // initialize sdl systems
-    SDLit::init(SDL_INIT_VIDEO);
+    SDLit::init(SDL_INIT_EVERYTHING, IMG_INIT_JPG | IMG_INIT_PNG, MIX_INIT_MP3, true);
 
     auto const window = SDLit::make_unique(
-        SDL_CreateWindow,
-        "Window",
-        SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED,
-        640,
-        480,
-        0U);
-    if (not window) { std::cerr << SDL_GetError() << std::endl; return EXIT_FAILURE; }
+        SDL_CreateWindow, "Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, 0U);
+    if (not window) { /* omitted */ }
 
     auto const renderer = SDLit::make_unique(
-        SDL_CreateRenderer,
-        window.get(),
-        -1,
-        SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    if (not renderer) { std::cerr << SDL_GetError() << std::endl; return EXIT_FAILURE; }
+        SDL_CreateRenderer, window.get(), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    if (not renderer) { /* omitted */ }
 
-    // ...
+    // omitted
 
     return 0;
 }
 ```
+
+For more details check [examples](examples) folder.
 
 ## License
 
