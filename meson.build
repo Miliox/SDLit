@@ -23,6 +23,9 @@ if get_option('build_example').enabled()
   # rotate around the different system cursors
   executable('cursor_test', 'example/cursor_test.cpp', win_subsystem: 'windows', dependencies: example_dep)
 
+  # list system available locales
+  executable('list_locale', 'example/list_locale.cpp', win_subsystem: 'windows', dependencies: example_dep)
+
   # simple image viewer with reactive resizable window
   executable('image_viewer', 'example/image_viewer.cpp', win_subsystem: 'windows', dependencies: example_dep)
 

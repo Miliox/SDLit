@@ -10,6 +10,7 @@ struct _TTF_Font;
 
 struct SDL_AudioSpec;
 struct SDL_Cursor;
+struct SDL_Locale;
 struct SDL_Renderer;
 struct SDL_Surface;
 struct SDL_Texture;
@@ -31,6 +32,7 @@ public:
     void operator()(_Mix_Music* ptr)   noexcept;
     void operator()(_TTF_Font* ptr)    noexcept;
     void operator()(SDL_Cursor* ptr)   noexcept;
+    void operator()(SDL_Locale* ptr)   noexcept;
     void operator()(SDL_Renderer* ptr) noexcept;
     void operator()(SDL_Surface* ptr)  noexcept;
     void operator()(SDL_Texture* ptr)  noexcept;
