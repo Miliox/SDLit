@@ -20,6 +20,9 @@ sdlit_lib = static_library('sdlit', sdlit_src, dependencies: sdlit_dep)
 if get_option('build_example').enabled()
   example_dep = declare_dependency(dependencies: sdlit_dep, link_with: sdlit_lib)
 
+  # rotate around the different system cursors
+  executable('cursor_test', 'example/cursor_test.cpp', win_subsystem: 'windows', dependencies: example_dep)
+
   # simple image viewer with reactive resizable window
   executable('image_viewer', 'example/image_viewer.cpp', win_subsystem: 'windows', dependencies: example_dep)
 

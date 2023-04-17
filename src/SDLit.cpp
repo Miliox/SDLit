@@ -57,6 +57,12 @@ void SDL_Deleter::operator()(_TTF_Font* ptr) noexcept {
     }
 }
 
+void SDL_Deleter::operator()(SDL_Cursor* ptr) noexcept {
+    if (ptr != nullptr) {
+        SDL_FreeCursor(ptr);
+    }
+}
+
 void SDL_Deleter::operator()(SDL_Renderer* ptr) noexcept {
     if (ptr != nullptr) {
         SDL_DestroyRenderer(ptr);
