@@ -6,12 +6,6 @@
 #include <cmath>
 #include <iostream>
 
-class CloseAudioGuard final {
-public:
-    CloseAudioGuard() = default;
-    ~CloseAudioGuard() { Mix_CloseAudio(); }
-};
-
 int main(int argc, char** argv) {
     if (argc != 2) {
         std::cerr << "Usage: " << argv[0] << " AUDIO_FILE\n";
@@ -24,7 +18,6 @@ int main(int argc, char** argv) {
         std::cerr << "Mix_OpenAudio failed: " << Mix_GetError() << '\n';
         return EXIT_FAILURE;
     }
-    CloseAudioGuard close_audio_guard{};
 
     auto chunk = SDLit::make_unique(Mix_LoadWAV, argv[1]);
     if (not chunk) {

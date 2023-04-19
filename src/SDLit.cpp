@@ -1,6 +1,8 @@
 #include "SDLit.hpp"
 
+#include <atomic>
 #include <cstdlib>
+#include <iostream>
 #include <mutex>
 #include <utility>
 
@@ -27,6 +29,7 @@ void init(
         std::atexit(SDL_Quit);
         std::atexit(IMG_Quit);
         std::atexit(Mix_Quit);
+        std::atexit(Mix_CloseAudio);
         std::atexit(TTF_Quit);
     });
 

@@ -35,6 +35,8 @@ if get_option('example').enabled()
   # decode the input file on demand while playing it
   executable('play_music', 'example/play_music.cpp', win_subsystem: 'windows', dependencies: example_dep)
 
+  executable('sine_wave', 'example/sine_wave.cpp', win_subsystem: 'windows', dependencies: example_dep)
+
   # create a window with colored stripes used to color test TVs
   executable('smpte_test', 'example/smpte_test.cpp', win_subsystem: 'windows', dependencies: example_dep)
 
