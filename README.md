@@ -38,7 +38,7 @@ meson setup --wipe builddir
 meson compile -C builddir
 
 # optional: enable building examples
-meson setup --reconfigure -Dbuild_example=enabled
+meson setup --reconfigure -Dexample=enabled
 meson compile -C builddir
 
 ```

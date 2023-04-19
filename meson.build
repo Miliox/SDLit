@@ -17,7 +17,7 @@ sdlit_dep = declare_dependency(
 )
 sdlit_lib = static_library('sdlit', sdlit_src, dependencies: sdlit_dep)
 
-if get_option('build_example').enabled()
+if get_option('example').enabled()
   example_dep = declare_dependency(dependencies: sdlit_dep, link_with: sdlit_lib)
 
   # rotate around the different system cursors

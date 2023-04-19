@@ -1,2 +1,2 @@
-option('build_example', type : 'feature', value : 'disabled') 
+option('example', type : 'feature', value : 'disabled', description: 'Include examples in build')
 

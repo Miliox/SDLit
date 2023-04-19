@@ -4,7 +4,7 @@ Collection of small application to demonstrate SDLit usage.
 
 To run them, enable building them using build\_example option:
 ```bash
-meson setup builddir --reconfigure --buildtype=release -Dbuild_example=enabled
+meson setup builddir --reconfigure --buildtype=release -Dexample=enabled
 
 meson compile -C builddir
 ```
